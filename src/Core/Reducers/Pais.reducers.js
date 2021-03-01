@@ -27,7 +27,7 @@ export default (state = INITIAL_STATE, action) => {
     case Error:
       return {
         ...state,
-        Resultado: action.Resultado,
+        Resultado: "E",
         Mensaje: action.Mensaje,
         Cargando: false,
       };

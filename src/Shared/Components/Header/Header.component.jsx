@@ -14,6 +14,16 @@ const HeaderComponent = ({
     clave: "",
   });
 
+  const [errorUsuario, setErrorUsuario] = useState({
+    hayError: false,
+    Mensaje: "",
+  });
+
+  const [errorClave, setErrorClave] = useState({
+    hayError: false,
+    Mensaje: "",
+  });
+
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setDatosUsuario({
@@ -23,9 +33,36 @@ const HeaderComponent = ({
   };
 
   const handleClickLogin = () => {
+    setErrorUsuario({
+      ...errorUsuario,
+      hayError: false,
+      Mensaje: "",
+    });
+
+    setErrorClave({
+      ...errorClave,
+      hayError: false,
+      Mensaje: "",
+    });
+
     const { usuario, clave } = datosUsuario;
 
     if (usuario.trim() === "" || clave.trim() === "") {
+      if (usuario.trim() === "") {
+        setErrorUsuario({
+          ...errorUsuario,
+          hayError: true,
+          Mensaje: "El campo usuario es obligatorio.",
+        });
+      }
+
+      if (clave.trim() === "") {
+        setErrorClave({
+          ...errorClave,
+          hayError: true,
+          Mensaje: "El campo clave es obligatorio",
+        });
+      }
       return;
     }
 
@@ -79,6 +116,9 @@ const HeaderComponent = ({
                         name="usuario"
                         onChange={handleChangeInput}
                       />
+                      <Form.Text className="text-danger">
+                        {errorUsuario.Mensaje}
+                      </Form.Text>
                     </Form.Group>
                     <Form.Group controlId="formClave">
                       <Form.Label>Contraseña</Form.Label>
@@ -88,6 +128,9 @@ const HeaderComponent = ({
                         name="clave"
                         onChange={handleChangeInput}
                       />
+                      <Form.Text className="text-danger">
+                        {errorClave.Mensaje}
+                      </Form.Text>
                     </Form.Group>
                     <Button
                       variant="primary"

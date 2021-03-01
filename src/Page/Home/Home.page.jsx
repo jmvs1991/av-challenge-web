@@ -4,6 +4,7 @@ import { format, addDays } from "date-fns";
 import ZonaComponent from "./Components/Zona/Zona.component";
 import ReporteComponent from "./Components/Reporte/Reporte.component";
 import DiasComponent from "./Components/Dias/Dias.component";
+import ModalMensajeComponent from "./../../Shared/Components/ModalMensaje/ModalMensaje.component";
 import * as PaisActions from "./../../Core/Actions/Pais.actions";
 import * as CiudadActions from "./../../Core/Actions/Ciudad.actions";
 import * as PronosticoActions from "./../../Core/Actions/Pronosticos.actions";
@@ -19,6 +20,10 @@ class HomePage extends React.Component {
       PronosticoActual: {},
       FechaInicio: 0,
       FechaFin: 0,
+      Modal: {
+        Mostrar: false,
+        Mensaje: "",
+      },
     };
   }
 
@@ -32,6 +37,10 @@ class HomePage extends React.Component {
       PronosticoActual: {},
       FechaInicio: format(FechaInicio, "yyyyMMdd"),
       FechaFin: format(FechaFin, "yyyyMMdd"),
+      Modal: {
+        Mostrar: false,
+        Mensaje: "",
+      },
     });
 
     this.buscarPaises();
@@ -40,6 +49,17 @@ class HomePage extends React.Component {
   buscarPaises = async () => {
     const { consumirObtenerPaises } = this.props;
     await consumirObtenerPaises();
+
+    const { Resultado, Mensaje } = this.props.PaisReducer;
+
+    if (Resultado === "E") {
+      this.setState({
+        Modal: {
+          Mostrar: true,
+          Mensaje: Mensaje,
+        },
+      });
+    }
   };
 
   buscarCiudades = async () => {
@@ -50,6 +70,17 @@ class HomePage extends React.Component {
       const { idPais } = PaisActual;
       if (idPais) {
         await consumirObtenerCiudadesPorPais(idPais);
+
+        const { Resultado, Mensaje } = this.props.CiudadReducer;
+
+        if (Resultado === "E") {
+          this.setState({
+            Modal: {
+              Mostrar: true,
+              Mensaje: Mensaje,
+            },
+          });
+        }
       }
     }
   };
@@ -64,7 +95,21 @@ class HomePage extends React.Component {
       if (idCiudad) {
         await consumirObtenerPronosticoByFecha(idCiudad, FechaInicio, FechaFin);
 
-        const { Pronosticos } = this.props.PronosticoReducer;
+        const {
+          Pronosticos,
+          Resultado,
+          Mensaje,
+        } = this.props.PronosticoReducer;
+
+        if (Resultado === "E") {
+          this.setState({
+            Modal: {
+              Mostrar: true,
+              Mensaje: Mensaje,
+            },
+          });
+          return;
+        }
 
         const pronosticoActual = Pronosticos.find((pronostico) => {
           const Fecha = new Date();
@@ -100,9 +145,24 @@ class HomePage extends React.Component {
     console.log("Click Buscar");
   };
 
+  handleMostrarModal = () => {
+    this.setState({
+      Modal: {
+        Mostrar: !this.state.Modal.Mostrar,
+        Mensaje: "",
+      },
+    });
+  };
+
   render() {
     return (
       <>
+        <ModalMensajeComponent
+          mostrar={this.state.Modal.Mostrar}
+          handleCerrar={this.handleMostrarModal}
+        >
+          <h5 className="font-italic">{this.state.Modal.Mensaje}</h5>
+        </ModalMensajeComponent>
         <div className="HomeTitulo">
           <div className="HomeTitulo__Contenedor">
             <h1 className="HomeTitulo__Contenedor--Texto">

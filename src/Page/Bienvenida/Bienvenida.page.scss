@@ -1,0 +1,22 @@
+@import "./../../Custom.scss";
+
+.Bienvenida {
+  background-image: url(./../../Assets/Svg/Tierra.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+.Bienvenida .Bienvenida__Titulo {
+  @extend .text-primary;
+  @extend .text-center;
+}
+
+.Bienvenida .Bienvenida__Titulo > h1 {
+  @extend .font-weight-bold;
+}
+
+.Bienvenida__Titulo > h2 {
+  @extend .font-weight-light;
+}

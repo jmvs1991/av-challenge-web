@@ -10,16 +10,19 @@ export const consumirObtenerPronosticoByFecha = (
   idCiudad,
   fechaI,
   fechaF
-) => async (dispatch) => {
+) => async (dispatch, getState) => {
   try {
     dispatch({
       type: Cargando,
     });
 
+    const { token } = getState().UsuarioReducer.Usuario;
+
     const peticion = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     };
 
