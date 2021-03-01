@@ -1,0 +1,35 @@
+@import "./../../../Custom.scss";
+
+.HeaderNavegacion {
+  @extend .ml-auto;
+}
+
+.HeaderNavegacion .HeaderNavegacion__dropdown {
+  @extend .text-right;
+  width: 350px;
+}
+
+.HeaderNavegacion
+  .HeaderNavegacion__dropdown
+  .HeaderNavegacion__dropdown--Menu {
+  width: 100%;
+}
+
+.HeaderNavegacion
+  .HeaderNavegacion__dropdown
+  .HeaderNavegacion__dropdown--Boton {
+  @extend .font-weight-bold;
+}
+
+.HeaderNavegacion
+  .HeaderNavegacion__dropdown
+  .HeaderNavegacion__dropdown--Boton
+  > svg {
+  @extend .ml-2;
+}
+
+.HeaderNavegacion
+  .HeaderNavegacion__dropdown
+  .HeaderNavegacion__dropdown--Boton::after {
+  display: none;
+}

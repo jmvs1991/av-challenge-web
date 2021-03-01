@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+
+// /* Color Theme Swatches in Hex */
+// $Diseño-de-juegos-1-hex: #011C26;
+// $Diseño-de-juegos-2-hex: #173840;
+// $Diseño-de-juegos-3-hex: #BF1111;
+// $Diseño-de-juegos-4-hex: #8C1F1F;
+// $Diseño-de-juegos-5-hex: #F2F2F2;
+
+// /* Color Theme Swatches in RGBA */
+// $Diseño-de-juegos-1-rgba: rgba(0,27,38, 1);
+// $Diseño-de-juegos-2-rgba: rgba(22,56,63, 1);
+// $Diseño-de-juegos-3-rgba: rgba(191,17,17, 1);
+// $Diseño-de-juegos-4-rgba: rgba(140,30,30, 1);
+// $Diseño-de-juegos-5-rgba: rgba(242,242,242, 1);
+
+// /* Color Theme Swatches in HSLA */
+// $Diseño-de-juegos-1-hsla: hsla(196, 96, 7, 1);
+// $Diseño-de-juegos-2-hsla: hsla(191, 47, 17, 1);
+// $Diseño-de-juegos-3-hsla: hsla(0, 83, 40, 1);
+// $Diseño-de-juegos-4-hsla: hsla(0, 63, 33, 1);
+// $Diseño-de-juegos-5-hsla: hsla(0, 0, 95, 1);
+
+
+/* make the customizations */
+$font-size-base: 0.8rem;
+$enable-gradients: true;
+$topbar-base-height: 100;
+
+$primary: #ff6859;
+$secondary: #475691;
+$light: #f9f9f9;
+
+$body-bg: #f2f2f1;
+
+$font-family-sans-serif: 'Poppins', 'Roboto', sans-serif;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "light": $light,
+);
+
+/* import bootstrap to set changes */
+@import "../node_modules/bootstrap/scss/bootstrap";

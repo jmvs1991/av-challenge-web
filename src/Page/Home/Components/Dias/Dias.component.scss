@@ -1,0 +1,23 @@
+@import "./../../../../Custom.scss";
+
+.Dias {
+  @extend .row;
+  @extend .rounded;
+  @extend .shadow-sm;
+  @extend .bg-white;
+  @extend .p-4;
+}
+
+.Dias .Dias__Contenedor {
+  @extend .col-12;
+  @extend .col-md-2;
+  @extend .text-center;
+  @extend .border;
+  @extend .border-top-0;
+  @extend .border-left-0;
+  @extend .border-bottom-0;
+}
+
+.Dias .Dias__Contenedor:last-child {
+  @extend .border-right-0;
+}

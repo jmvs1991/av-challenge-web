@@ -1,0 +1,25 @@
+@import "./../../../../Custom.scss";
+
+.Zona {
+  @extend .rounded;
+  @extend .shadow-sm;
+  @extend .bg-white;
+  @extend .p-4;
+}
+
+.Zona .Zona__Titulo {
+  @extend .text-center;
+  @extend .text-secondary;
+  @extend .font-weight-bold;
+  @extend .border-secondary;
+  @extend .border-bottom;
+  @extend .pb-2;
+}
+
+.Zona .Zona__Formulario {
+  @extend .mt-4;
+}
+
+.Zona .Zona__Formulario > label {
+  @extend .font-weight-bold;
+}

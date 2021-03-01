@@ -1,0 +1,28 @@
+@import "./../../Custom.scss";
+
+.HomeTitulo {
+  @extend .row;
+  @extend .mb-4;
+}
+
+.HomeTitulo .HomeTitulo__Contenedor {
+  @extend .col-12;
+  @extend .text-center;
+}
+
+.HomeTitulo .HomeTitulo__Contenedor .HomeTitulo__Contenedor--Texto {
+  @extend .border-primary;
+  @extend .border-bottom;
+  @extend .font-weight-bold;
+  @extend .pb-2;
+}
+
+.HomeTarjetas {
+  @extend .row;
+}
+
+.HomeTarjetas .HomeTarjetas__Zona,
+.HomeTarjetas .HomeTarjetas__Reporte {
+  @extend .col-12;
+  @extend .col-md-6;
+}

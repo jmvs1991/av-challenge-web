@@ -1,0 +1,56 @@
+@import "./../../../../Custom.scss";
+
+.Reporte {
+  @extend .rounded;
+  @extend .shadow-sm;
+  @extend .bg-white;
+  @extend .p-4;
+}
+
+.Reporte .Reporte__Titulo {
+  @extend .text-center;
+  @extend .text-secondary;
+  @extend .font-weight-bold;
+  @extend .border-secondary;
+  @extend .border-bottom;
+  @extend .pb-2;
+}
+
+.Reporte .Reporte__NombrePais {
+  @extend .mt-4;
+  @extend .text-muted;
+}
+
+.Reporte .Reporte__NombreCiudad {
+  @extend .text-muted;
+}
+
+.Reporte .Reporte__InfoAdic {
+  @extend .text-right;
+  @extend .mt-2;
+}
+
+.Reporte .Reporte__Clima {
+  @extend .row;
+  @extend .mt-4;
+}
+
+.Reporte .Reporte__Clima .Reporte__Clima--ContenedorDatos {
+  @extend .col-8;
+}
+
+.Reporte .Reporte__Clima .Reporte__Clima--ContenedorDatos > h2,
+.Reporte .Reporte__Clima .Reporte__Clima--ContenedorDatos > h3,
+.Reporte .Reporte__Clima .Reporte__Clima--ContenedorDatos > h1,
+.Reporte .Reporte__Clima .Reporte__Clima--ContenedorDatos > h5 {
+  @extend .font-weight-bold;
+}
+
+.Reporte .Reporte__Clima .Reporte__Clima--ContenedorIcono {
+  @extend .col-4;
+}
+
+.Reporte .Reporte__Clima .Reporte__Clima--ContenedorIcono > svg {
+  @extend .text-center;
+  @extend .text-muted;
+}
